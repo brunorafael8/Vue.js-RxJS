@@ -1,17 +1,26 @@
 <template>
   <div id="app">
+    <p>Count: {{ count }}</p>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'app',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+  import { Observable } from 'rxjs/Observable'
+
+  export default {
+    name: 'app',
+    data () {
+      return {
+        count: 0
+      }
+    },
+    created () {
+      const obs = Observable.interval(1000)
+      obs.subscribe(
+        (value) => this.count = value
+      )
     }
   }
-}
 </script>
 
 <style lang="scss">

@@ -1,4 +1,4 @@
-# vue_e_rxjs
+# Vue + RxJS
 
 > A Vue.js project
 
