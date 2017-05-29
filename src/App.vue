@@ -6,6 +6,8 @@
 
 <script>
   import { Observable } from 'rxjs/Observable'
+  import 'rxjs/add/observable/interval'
+  import 'rxjs/add/operator/filter'
 
   export default {
     name: 'app',
@@ -16,9 +18,11 @@
     },
     created () {
       const obs = Observable.interval(1000)
-      obs.subscribe(
-        (value) => this.count = value
-      )
+      obs
+        .filter((value) => value % 2 == 0)
+        .subscribe(
+          (value) => this.count = value
+        )
     }
   }
 </script>
